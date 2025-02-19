@@ -52,4 +52,3 @@ console.log("Aprovação: "+(nota1>7 || nota2>7)); //true
 console.log(!true); //false
 
 
-
