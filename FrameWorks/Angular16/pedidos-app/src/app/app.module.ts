@@ -9,22 +9,20 @@ import { PedidoFormComponent } from './section/pedido-form/pedido-form.component
 import { PedidosListComponent } from './section/pedidos-list/pedidos-list.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     ClienteFormComponent,
     ProdutoFormComponent,
     PedidoFormComponent,
-    PedidosListComponent
+    PedidosListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

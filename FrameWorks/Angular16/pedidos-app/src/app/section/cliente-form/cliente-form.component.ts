@@ -14,9 +14,9 @@ export class ClienteFormComponent {
 
   //método
   salvarCliente() {
-    const cliente = new Cliente(
-      this.dadosService.getClientes().length + 1,this.nome); //obj
-      this.dadosService.addCliente(cliente);
-      this.nome ="";
+    const cliente = new Cliente(this.dadosService.getClientes().length + 1,this.nome); //obj
+    this.dadosService.addCliente(cliente);  //adicionando o obj no vetor clientes
+    this.nome = "";
+    alert("Cliente Salvo com Sucesso!!!");
   }
 }
