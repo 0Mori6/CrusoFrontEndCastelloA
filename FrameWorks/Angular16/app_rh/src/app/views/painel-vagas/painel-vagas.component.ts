@@ -8,6 +8,7 @@ import { VagaService } from 'src/app/services/vaga.service';
   styleUrls: ['./painel-vagas.component.scss'],
 })
 export class PainelVagasComponent implements OnInit {
+  //controller -> view
   //fazer os controller para Vagas
   public vagas: Vaga[] = []; //armazena os dados da API
   public vaga: Vaga = new Vaga(0, '', '', '', 0); //manipular no Formulário(inserir, modificar, deletar)
@@ -37,44 +38,51 @@ export class PainelVagasComponent implements OnInit {
     );
   }
 
-  //listarVaga unica
-listarVagaUnica(vaga:Vaga){
-  //função para listar no formulario a vaga clicada na tabela
-  this.vaga=vaga;
-}
-  //cadastrar Vaga
-  cadastrarVaga(){
+  //listar Vaga Unica
+  listarVagaUnica(vaga: Vaga) {
+    //função para listar no formulário a vaga clicada na tabela
+    this.vaga = vaga;
+  }
+  //Cadastrar Vaga
+  cadastrarVaga() {
     this._vagaService.postVaga(this.vaga).subscribe(
-      ()=>{
-        this.vaga = new Vaga(0,"","","",0);
+      () => {
+        this.vaga = new Vaga(0, '', '', '', 0);
         this.listarVagas(); //atualizar a tabela com a nova Vaga
-        alert("Vaga Cadastrada com Sucesso!!!");
-      },(erro) => {console.error("Exception: ",erro);}
-      //em caso de erro mpostra uma mensagem no console
+        alert('Vaga Cadastrada com Sucesso!!!');
+      },
+      (erro) => {
+        console.error('Exception: ', erro);
+      }
+      //em caso de erro mostra uma mensagem no console
     );
   }
 
-  //Atualizar vaga
-  atualizarVaga(id:any){
-    this._vagaService.putVaga(id,this.vaga).subscribe(
-      ()=>{
-        this.vaga = new Vaga(0,"","","",0);
-        this.listarVagas(); //atualizar a tabela
-        alert("Vaga Atualizada com Sucesso!!!");
-      },(erro)=>{console.error("Exception: ",erro);}
-    )
+  //Atualizar Vaga
+  atualizarVaga(id: any) {
+    this._vagaService.putVaga(id, this.vaga).subscribe(
+      () => {
+        this.vaga = new Vaga(0, '', '', '', 0);
+        this.listarVagas(); //atualiza a tabela
+        alert('Vaga Atualizada com Sucesso');
+      },
+      (erro) => {
+        console.error('Exception: ', erro);
+      }
+    );
   }
 
-  //Deletar vaga
-  excluirvaga(id:any){
+  //Deletar Vaga
+  excluirVaga(id: any) {
     this._vagaService.deleteVaga(id).subscribe(
-      ()=>{
-        this.vaga = new Vaga(0,"","","",0);
-        this.listarVagas(); //atualizar a tabela
-        alert("Vaga Excluida com Sucesso!!!");
-      }, (erro) => {console.error("Exception: ",erro);}
-    )
+      () => {
+        this.vaga = new Vaga(0, '', '', '', 0);
+        this.listarVagas(); //atualiza a tabela
+        alert('Vaga Deletada com Sucesso');
+      },
+      (erro) => {
+        console.error('Exception: ', erro);
+      }
+    );
   }
-
-
 }
